@@ -1,0 +1,132 @@
+﻿@model News_Article_Project.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<style>
+    
+    body {
+        
+        background-color: #1a233b !important;
+        color: #f0f0f0; 
+        
+    }
+
+    
+    .auth-container {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+  
+    .auth-card {
+        width: 100%;
+        max-width: 450px;
+        padding: 30px;
+        border-radius: 8px;
+        background-color: #2a344a; 
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    h2, strong {
+        color: #ffffff;
+        text-align: center;
+    }
+
+    .auth-card p {
+        color: #c0c0c0;
+        text-align: center;
+    }
+
+    .auth-card hr {
+        border-top: 1px solid #4a546a;
+        margin-bottom: 20px;
+    }
+
+    .auth-card label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        color: #c0c0c0;
+    }
+
+    .form-control {
+        background-color: #3b455b;
+        border: 1px solid #4a546a;
+        color: #ffffff;
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        margin-top: 25px;
+        padding: 10px;
+        width: 100%;
+        background-color: #3498db; 
+        border: none;
+        color: #ffffff;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-custom:hover {
+            background-color: #2980b9;
+        }
+
+    .auth-card a {
+        color: #3498db;
+        text-decoration: none;
+    }
+
+        .auth-card a:hover {
+            text-decoration: underline;
+        }
+
+  
+    .text-danger {
+        color: #ff6b6b !important;
+        font-size: 0.9em;
+    }
+</style>
+
+<div class="auth-container">
+    <div class="auth-card">
+        <h2>@ViewBag.Title</h2>
+        <p>Join <strong>TrueGlobalNews Portal</strong> and explore world stories.</p>
+        <hr />
+
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter your email" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Enter your password" })
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(m => m.ConfirmPassword)
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm your password" })
+            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+
+            <input type="submit" value="Register" class="btn-custom" />
+        }
+
+        <p class="mt-3">
+            Already have an account? @Html.ActionLink("Log in", "Login", "Account")
+        </p>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Welcome to the TrueGlobalNews Portal";
+}
+
+<style>
+    body {
+        background: linear-gradient(to right, #0f172a, #1e293b);
+        color: #f8fafc;
+        font-family: 'Segoe UI', sans-serif;
+        min-height: 100vh;
+    }
+</style>
+
+    <div class="container text-center my-5 fade-in">
+        <h1 class="display-5 fw-bold mb-3">Welcome to the TrueGlobalNews Portal 🌍</h1>
+        <p class="lead text-muted mb-5">
+            Explore the latest global stories by region and uncover different perspectives.
+        </p>
+
+        <div class="row justify-content-center g-4">
+
+            <div class="col-md-4">
+                <div class="card topic-card shadow-lg border-0 h-100" onclick="location.href='/Topic/Ukraine'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg"
+                         class="card-img-top" alt="Ukraine Flag">
+                    <div class="card-body">
+                        <h5 class="card-title">Ukraine</h5>
+                        <p class="card-text text-muted">
+                            Dive into ongoing developments in the Ukraine conflict and global response.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="card topic-card shadow-lg border-0 h-100" onclick="location.href='/Topic/Israel'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg"
+                         class="card-img-top" alt="Palestine Flag">
+                    <div class="card-body">
+                        <h5 class="card-title">Palestine</h5>
+                        <p class="card-text text-muted">
+                            Read diverse perspectives on the humanitarian and political situation in Palestine.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="card topic-card shadow-lg border-0 h-100" onclick="location.href='/Topic/China'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/330px-Flag_of_the_People%27s_Republic_of_China.svg.png" "
+                         class="card-img-top" alt="China Flag">
+                    <div class="card-body">
+                        <h5 class="card-title">China</h5>
+                        <p class="card-text text-muted">
+                            Explore China's role in U.S. trade wars and foreign policy actions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .fade-in {
+            animation: fadeIn 1.2s ease-in;
+        }
+
+        fadeIn {
+            from
+
+        {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        }
+
+        .topic-card {
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border-radius: 15px;
+        }
+
+            .topic-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+            }
+
+            .topic-card img {
+                height: 180px;
+                object-fit: cover;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+            }
+
+        .card-body {
+            padding: 1.25rem;
+        }
+    </style>

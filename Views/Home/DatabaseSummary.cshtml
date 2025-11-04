@@ -1,0 +1,155 @@
+﻿@model News_Article_Project.ViewModels.DatabaseSummaryVM
+
+@{
+    ViewBag.Title = "TrueGlobalNews - Database Overview";
+}
+
+<div class="container my-5">
+    <div class="text-center mb-5">
+        <h1 class="fw-bold text-primary">TrueGlobalNews Database Overview</h1>
+        <p class="text-muted">A quick view of all topics, sources, and articles currently stored in the system.</p>
+    </div>
+
+    <div class="card shadow-lg mb-5 border-0 rounded-4">
+        <div class="card-header text-white fw-bold" style="background-color: #0078D7;">
+            <h4 class="mb-0"><i class="bi bi-tags me-2"></i>Topics</h4>
+        </div>
+        <div class="card-body bg-light">
+            @if (Model.Topics != null && Model.Topics.Any())
+            {
+                <table class="table table-hover table-striped align-middle">
+                    <thead class="table-primary text-center">
+                        <tr>
+                            <th>ID</th>
+                            <th>Topic Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var topic in Model.Topics)
+                        {
+                            <tr>
+                                <td class="text-center">@topic.TopicId</td>
+                                <td>@topic.Name</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p class="text-muted text-center mb-0">No topics have been added yet.</p>
+            }
+        </div>
+    </div>
+
+    <!-- SOURCES TABLE -->
+    <div class="card shadow-lg mb-5 border-0 rounded-4">
+        <div class="card-header text-white fw-bold" style="background-color: #0078D7;">
+            <h4 class="mb-0"><i class="bi bi-newspaper me-2"></i>Sources</h4>
+        </div>
+        <div class="card-body bg-light">
+            @if (Model.Sources != null && Model.Sources.Any())
+            {
+                <table class="table table-hover table-striped align-middle">
+                    <thead class="table-primary text-center">
+                        <tr>
+                            <th>ID</th>
+                            <th>Source Name</th>
+                            <th>Bias</th>
+                            <th>Website</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var source in Model.Sources)
+                        {
+                            <tr>
+                                <td class="text-center">@source.SourceId</td>
+                                <td>@source.Name</td>
+                                <td>@source.Bias</td>
+                                <td><a href="@source.Website" target="_blank">@source.Website</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p class="text-muted text-center mb-0">No sources found.</p>
+            }
+        </div>
+    </div>
+
+    <!-- ARTICLES TABLE -->
+    <div class="card shadow-lg mb-5 border-0 rounded-4">
+        <div class="card-header text-white fw-bold" style="background-color: #0078D7;">
+            <h4 class="mb-0"><i class="bi bi-file-earmark-text me-2"></i>Articles</h4>
+        </div>
+        <div class="card-body bg-light">
+            @if (Model.Articles != null && Model.Articles.Any())
+            {
+                <table class="table table-hover table-striped align-middle">
+                    <thead class="table-primary text-center">
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Topic</th>
+                            <th>Source</th>
+                            <th>URL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var article in Model.Articles)
+                        {
+                            <tr>
+                                <td class="text-center">@article.ArticleId</td>
+                                <td>@article.Title</td>
+                                <td>@article.Topic.TopicId</td>
+                                <td>@article.Source.SourceId</td>
+                                <td><a href="@article.Url" target="_blank">@article.Url</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p class="text-muted text-center mb-0">No articles available.</p>
+            }
+        </div>
+    </div>
+
+    <div class="text-center">
+        <a href="/Home/Welcome" class="btn btn-primary rounded-3 px-4 py-2 shadow">
+            <i class="bi bi-arrow-left-circle me-2"></i>Back to Welcome Page
+        </a>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #e9f2ff;
+    }
+
+    .card {
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+    table th {
+        background-color: #0078D7 !important;
+        color: white;
+    }
+
+    a {
+        color: #0078D7;
+        text-decoration: none;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+</style>

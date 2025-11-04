@@ -1,0 +1,82 @@
+﻿@model News_Article_Project.ViewModels.TopicDetailsVM
+
+@{
+    ViewBag.Title = $"{Model.TopicName} - GlobalNews Articles";
+}
+
+<div class="container my-5">
+    <!-- Topic Header -->
+    <div class="card shadow-lg border-0 rounded-4 mb-5">
+        <div class="card-header text-white fw-bold" style="background-color: #0078D7;">
+            <h2 class="mb-0">@Model.TopicName</h2>
+        </div>
+        <div class="card-body bg-light">
+            <p class="lead text-muted">@Model.TopicDescription</p>
+        </div>
+    </div>
+
+    <!-- Articles Section -->
+    <div class="row g-4">
+        @if (Model.Articles != null && Model.Articles.Any())
+        {
+            foreach (var article in Model.Articles)
+            {
+                <div class="col-md-6 col-lg-4">
+                    <div class="card shadow-sm border-0 rounded-4 h-100">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-primary">@article.Title</h5>
+                            <p class="card-text text-dark small mb-3">
+                                @article.Description
+                            </p>
+
+                            <p class="mb-2">
+                                <strong>Source:</strong> @article.Source.Name <br />
+                                                                              <span class="badge
+                                    @(article.Source.Bias == "Left" ? "bg-primary" :
+                                    article.Source.Bias == "Right" ? "bg-danger" : "bg-secondary")">
+                                    @article.Source.Bias
+                                                                              </span>
+                            </p>
+
+                            <a href="@article.Url" target="_blank" class="btn btn-outline-primary btn-sm rounded-3">
+                                Read Full Article
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="text-center">
+                <p class="text-muted">No articles found under this topic.</p>
+            </div>
+        }
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="/Home/Welcome" class="btn btn-primary rounded-3 px-4 py-2 shadow">
+            <i class="bi bi-arrow-left-circle me-2"></i>Back to Welcome
+        </a>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #e9f2ff;
+    }
+
+    .card {
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+    .badge {
+        font-size: 0.85rem;
+        padding: 0.5em 0.75em;
+    }
+</style>

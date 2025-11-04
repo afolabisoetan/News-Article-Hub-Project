@@ -1,0 +1,84 @@
+﻿@model List<string>
+@using Microsoft.AspNet.Identity
+
+@if (Request.IsAuthenticated)
+{
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <!-- 🔽 Dynamic Topics Dropdown -->
+        <li class="nav-item dropdown me-3">
+            <a class="nav-link dropdown-toggle fw-semibold text-light" href="#" id="topicsDropdown" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">
+                Topics
+            </a>
+            <ul class="dropdown-menu shadow-sm rounded-3 border-0" aria-labelledby="topicsDropdown">
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var topic in Model)
+                    {
+                        <li>
+                            @Html.ActionLink(topic, "Details", "Topic", new { topicName = topic }, new { @class = "dropdown-item" })
+                        </li>
+                    }
+                }
+                else
+                {
+                    <li><span class="dropdown-item text-muted fst-italic">No topics yet</span></li>
+                }
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="navbar-nav ms-auto">
+        <!-- 🔽 User Dropdown -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fw-semibold text-light" href="#" id="userDropdown" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">
+                Hello @User.Identity.GetUserName()!
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm rounded-3 border-0" aria-labelledby="userDropdown">
+                @if (User.Identity.GetUserName() == "afolabitest.o.soetan@gmail.com")
+                {
+                    <li>@Html.ActionLink("Add Article", "Article", "Home", null, new { @class = "dropdown-item" })</li>
+                    <li>@Html.ActionLink("Add Source", "Source", "Home", null, new { @class = "dropdown-item" })</li>
+                    <li>@Html.ActionLink("Add Topic", "Topic", "Home", null, new { @class = "dropdown-item" })</li>
+                    <li>@Html.ActionLink("Delete Article", "DeleteArticle", "Home", null, new { @class = "dropdown-item" })</li>
+                    <li>@Html.ActionLink("Delete Source", "DeleteSource", "Home", null, new { @class = "dropdown-item" })</li>
+                    <li>@Html.ActionLink("Delete Topic", "DeleteTopic", "Home", null, new { @class = "dropdown-item" })</li>
+                    <li>@Html.ActionLink("See Table Info", "DatabaseSummary", "Home", null, new { @class = "dropdown-item" })</li>
+                    <li><hr class="dropdown-divider" /></li>
+                }
+
+                <li>
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <a class="dropdown-item text-danger fw-semibold" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                    }
+                </li>
+            </ul>
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item me-2">
+            @Html.ActionLink("Register", "Register", "Account", null, new { @class = "nav-link fw-semibold text-light" })
+        </li>
+        <li class="nav-item">
+            @Html.ActionLink("Log in", "Login", "Account", null, new { @class = "nav-link fw-semibold text-light" })
+        </li>
+    </ul>
+}
+
+<style>
+    .nav-link:hover, .dropdown-item:hover {
+        color: #0078D7 !important;
+    }
+
+    .dropdown-menu {
+        background-color: #f8f9fa;
+    }
+</style>

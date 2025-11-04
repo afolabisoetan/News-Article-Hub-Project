@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobalNews Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #0f172a, #1e293b);
+            color: #f8fafc;
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+            .hero h1 {
+                font-size: 3rem;
+                font-weight: 700;
+            }
+
+            .hero p {
+                font-size: 1.25rem;
+                color: #cbd5e1;
+            }
+
+        .btn-custom {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
+            .btn-custom:hover {
+                background-color: #2563eb;
+                transform: scale(1.05);
+            }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background-color: #1e293b;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            width: 280px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+            .feature-card h3 {
+                color: #3b82f6;
+                margin-bottom: 0.5rem;
+            }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Welcome to the TrueGlobalNews Portal 🌍</h1>
+        <p>Explore and analyze world news by topic, source, and political bias.</p>
+        <a href="Account/Login" class="btn-custom mt-3">Login</a>
+        <a href="Account/Register" class="btn-custom mt-3">Register</a>
+
+        <div class="features mt-5">
+            <div class="feature-card">
+                <h3>📰 Organized Topics</h3>
+                <p>View curated news articles across key global issues like Ukraine, Inflation, and more.</p>
+
+            </div>
+            <div class="feature-card">
+                <h3>⚖️ Bias Insights</h3>
+                <p>Compare how Left, Right, and Center sources report the same stories.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📈 Data Visualization</h3>
+                <p>Interactive charts show bias distributions and article trends.</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: left; margin-top: 40px; ">
+        <img src="https://www.freeiconspng.com/thumbs/globe-png/globe-png-hd-1.png" alt="Globe" style="width: 460; height: 480; opacity: 0.9;">
+    </div>
+
+</body>
+</html>

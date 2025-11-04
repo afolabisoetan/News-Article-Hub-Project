@@ -1,0 +1,38 @@
+﻿@model News_Article_Project.ViewModels.DeleteSourceVM
+
+@{
+    ViewBag.Title = "Delete Source";
+}
+
+<h2>Delete Source</h2>
+
+@using (Html.BeginForm("DeleteSource", "Home", FormMethod.Post))
+{
+    if (Model.message != null)
+    {
+        <p class="alert alert-danger">@Model.message</p>
+    }
+
+    <div class="form-group mb-3">
+        <label for="sourceSelect" class="form-label">Select the Source ID to delete:</label>
+
+        @Html.DropDownListFor(
+      x => x.id, // x.id is the Guid property on the ViewModel
+      new SelectList(
+          Model.sources.Select(a => new
+               {
+              Value = a.SourceId, // <-- Convert Guid to string here
+              Text = a.Name // <-- Use a user-friendly field for display
+          }),
+          "Value",
+          "Text"
+      ),
+      "-- Select a Source --",
+      new { @class = "form-select", id = "sourceSelect" }
+    )
+        <small class="form-text text-muted">Note that deleting a source deletes all of its articles.</small>
+    </div>
+
+    <button type="submit" class="btn btn-danger">Delete Source</button>
+}
+

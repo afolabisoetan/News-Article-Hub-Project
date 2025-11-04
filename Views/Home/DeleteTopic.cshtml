@@ -1,0 +1,37 @@
+﻿@model News_Article_Project.ViewModels.DeleteTopicVM
+
+@{
+    ViewBag.Title = "Delete Topic";
+}
+
+<h2>Delete Topic</h2>
+
+@using (Html.BeginForm("DeleteTopic", "Home", FormMethod.Post))
+{
+    if (Model.message != null)
+    {
+        <p class="alert alert-danger">@Model.message</p>
+    }
+
+    <div class="form-group mb-3">
+        <label for="topicSelect" class="form-label">Select the Topic ID to delete:</label>
+
+        @Html.DropDownListFor(
+      x => x.id, // x.id is the Guid property on the ViewModel
+      new SelectList(
+          Model.topics.Select(a => new
+               {
+              Value = a.TopicId, // <-- Convert Guid to string here
+              Text = a.Name // <-- Use a user-friendly field for display
+          }),
+          "Value",
+          "Text"
+      ),
+      "-- Select a Topic --",
+      new { @class = "form-select", id = "topicSelect" }
+    )
+        <small class="form-text text-muted">Note that deleting a topic deletes all of its articles.</small>
+    </div>
+
+    <button type="submit" class="btn btn-danger">Delete Topic</button>
+}
