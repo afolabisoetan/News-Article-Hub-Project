@@ -7,13 +7,13 @@ namespace News_Article_Project.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class constraints : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(constraints));
         
         string IMigrationMetadata.Id
         {
-            get { return "202510300423131_InitialCreate"; }
+            get { return "202511111857202_constraints"; }
         }
         
         string IMigrationMetadata.Source

@@ -106,7 +106,37 @@ C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\o
 C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\obj\Debug\News Art.808ABBF4.Up2Date
 C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\obj\Debug\News Article Project.dll
 C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\obj\Debug\News Article Project.pdb
-C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\obj\Debug\News_Article_Project.Migrations.InitialCreate.resources
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\EntityFramework6.Npgsql.dll
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\Microsoft.Bcl.HashCode.dll
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\Npgsql.dll
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Buffers.dll
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Collections.Immutable.dll
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Memory.dll
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Numerics.Vectors.dll
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Text.Encodings.Web.dll
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Text.Json.dll
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Threading.Channels.dll
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.ValueTuple.dll
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\EntityFramework6.Npgsql.xml
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\Microsoft.Bcl.HashCode.xml
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\Npgsql.xml
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Buffers.xml
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Collections.Immutable.xml
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Memory.xml
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Numerics.Vectors.xml
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Text.Encodings.Web.xml
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Text.Json.xml
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Threading.Channels.xml
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\bin\System.ValueTuple.xml
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\obj\Debug\News_Article_Project.Migrations.pginit.resources
 C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\obj\Debug\News Article Project.csproj.GenerateResource.cache
-C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\obj\Debug\News_Article_Project.Migrations.uniqueness.resources
-C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\obj\Debug\News_Article_Project.Migrations.adddescription.resources
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\obj\Debug\News_Article_Project.Migrations.biasvalue.resources
+C:\Users\Afolabi Soetan\source\repos\News Article Project\News Article Project\obj\Debug\News_Article_Project.Migrations.constraints.resources

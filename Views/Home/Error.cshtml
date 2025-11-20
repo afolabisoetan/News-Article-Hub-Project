@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null; // disable layout to prevent DB errors
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Database Connection Error</title>
+    <style>
+        body {
+            background-color: #001f33; /* deep dark blue */
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .message-box {
+            background-color: #002f55;
+            border-radius: 12px;
+            padding: 50px 80px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #ff6b6b; /* subtle red for emphasis */
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #dbe9ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="message-box">
+        <h1>You’re experiencing connection issues.</h1>
+        <p>You are having a rough time connecting to the database right now.</p>
+        <p>Verify your connection and check back shortly.</p>
+    </div>
+</body>
+</html>

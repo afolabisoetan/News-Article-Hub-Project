@@ -1,10 +1,11 @@
-﻿using System;
+﻿using News_Article_Project.Models;
+using News_Article_Project.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using News_Article_Project.Models;
-using News_Article_Project.ViewModels;
 
 namespace News_Article_Project.Controllers
 {
@@ -12,8 +13,27 @@ namespace News_Article_Project.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            try
+            {
+                using (var db = new ApplicationDbContext())
+                {
+                    var conn = db.Database.Connection;
+                    conn.Open(); 
+
+                    
+                    var topics = db.Topics.Take(1).ToList();
+                }
+
+                return View();
+            }
+            catch (Exception ex)
+            {
+                
+                ViewBag.ErrorMessage = "Database connection failed: " + ex.Message;
+                return View("Error");
+            }
         }
+
         [Authorize]
         public ActionResult DeleteTopic ()
         {
@@ -166,13 +186,31 @@ namespace News_Article_Project.Controllers
         }
         public PartialViewResult LoginPartial()
         {
-            using (var db = new ApplicationDbContext())
+            try
             {
-                var topics = db.Topics
-                               .Select(t => t.Name)
-                               .ToList();
-                return PartialView("_LoginPartial", topics);
+                using (var db = new ApplicationDbContext())
+                {
+                    if (!db.Database.Exists())
+                    {
+                        ViewBag.ErrorMessage = "Database connection failed: ";
+                        return PartialView("~/Views/Shared/Error.cshtml");
+                    }
+
+                    var topics = db.Topics.Select(t => t.Name).ToList();
+                    return PartialView("_LoginPartial", topics);
+                }
             }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = "Database connection failed: " + ex.Message;
+                return PartialView("~/Views/Shared/Error.cshtml");
+            }
+        }
+
+
+        public ActionResult Error ()
+        {
+            return View();
         }
         [Authorize]
         public ActionResult Article()
@@ -192,6 +230,14 @@ namespace News_Article_Project.Controllers
             if (article.Title ==null)
             {
                 article.message = "Article must have a title";
+                article.Topics = dbContext.Topics.ToList();
+                article.Sources = dbContext.Sources.ToList();
+                return View(article);
+            }
+
+            if(article.BiasValue != 1 && article.BiasValue != 2 && article.BiasValue != 3 &&  article.BiasValue != 4 && article.BiasValue != 5)
+            {
+                article.message = "Bias value must be a number between 1-5 ";
                 article.Topics = dbContext.Topics.ToList();
                 article.Sources = dbContext.Sources.ToList();
                 return View(article);
@@ -232,6 +278,7 @@ namespace News_Article_Project.Controllers
             newArticle.Topic = topic;
             newArticle.Source = source;
             newArticle.Description = article.Description;
+            newArticle.BiasValue = article.BiasValue;
             dbContext.Articles.Add(newArticle);
 
             try

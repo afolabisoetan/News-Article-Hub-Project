@@ -17,6 +17,8 @@ namespace News_Article_Project.ViewModels
 
         public string Description { get; set; } = string.Empty;
 
+        public int BiasValue { get; set; } // 1 = Left, 3 = Center, 5 = Right
+
         public List<Topic> Topics { get; set; }
         public List<Source> Sources { get; set; }
 

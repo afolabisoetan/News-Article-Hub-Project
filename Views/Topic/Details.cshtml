@@ -25,20 +25,49 @@
                     <div class="card shadow-sm border-0 rounded-4 h-100">
                         <div class="card-body">
                             <h5 class="card-title fw-bold text-primary">@article.Title</h5>
+
                             <p class="card-text text-dark small mb-3">
                                 @article.Description
                             </p>
 
                             <p class="mb-2">
                                 <strong>Source:</strong> @article.Source.Name <br />
-                                                                              <span class="badge
-                                    @(article.Source.Bias == "Left" ? "bg-primary" :
-                                    article.Source.Bias == "Right" ? "bg-danger" : "bg-secondary")">
-                                    @article.Source.Bias
-                                                                              </span>
+
+                                    <span class="badge @(article.Source.Bias.Trim() == "Left" ? "bg-primary" :
+                                    article.Source.Bias.Trim() == "Right" ? "bg-danger" :
+                                    article.Source.Bias.Trim() == "Center" ? "bg-success" :
+                                    "bg-secondary")">
+
+                                    @(article.Source.Bias.Trim() == "Left" ? "Left Wing Source" :
+                                    article.Source.Bias.Trim() == "Right" ? "Right Wing Source" :
+                                    article.Source.Bias.Trim() == "Center" ? "Center Source" :
+                                    article.Source.Bias.Trim())
+                                </span>
                             </p>
 
-                            <a href="@article.Url" target="_blank" class="btn btn-outline-primary btn-sm rounded-3">
+                           
+                            @if (article.BiasValue == 1)
+                            {
+                                <p class="fw-bold text-primary small">Note: This specific article has a far left bias.</p>
+                            }
+                            else if (article.BiasValue == 2)
+                            {
+                                <p class="fw-bold text-info small">Note: This specific article has a moderate left bias.</p>
+                            }
+                            else if (article.BiasValue == 3)
+                            {
+                                <p class="fw-bold text-success small">Note: This specific article has a balanced perspective.</p>
+                            }
+                            else if (article.BiasValue == 4)
+                            {
+                                <p class="fw-bold text-warning small">Note: This specific article has a moderate right bias.</p>
+                            }
+                            else if (article.BiasValue == 5)
+                            {
+                                <p class="fw-bold text-danger small">Note: This specific article has a far right bias.</p>
+                            }
+
+                            <a href="@article.Url" target="_blank" class="btn btn-outline-primary btn-sm rounded-3 mt-2">
                                 Read Full Article
                             </a>
                         </div>
@@ -56,7 +85,7 @@
 
     <div class="text-center mt-5">
         <a href="/Home/Welcome" class="btn btn-primary rounded-3 px-4 py-2 shadow">
-            <i class="bi bi-arrow-left-circle me-2"></i>Back to Welcome
+            <i class="bi bi-arrow-left-circle me-2"></i>Back to Welcome Page
         </a>
     </div>
 </div>
@@ -78,5 +107,25 @@
     .badge {
         font-size: 0.85rem;
         padding: 0.5em 0.75em;
+    }
+
+    .text-danger {
+        color: #d9534f !important;
+    }
+
+    .text-warning {
+        color: #f0ad4e !important;
+    }
+
+    .text-success {
+        color: #5cb85c !important;
+    }
+
+    .text-info {
+        color: #5bc0de !important;
+    }
+
+    .text-primary {
+        color: #0078D7 !important;
     }
 </style>

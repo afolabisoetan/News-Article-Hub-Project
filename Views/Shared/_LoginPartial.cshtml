@@ -1,11 +1,11 @@
 ﻿@model List<string>
 @using Microsoft.AspNet.Identity
 
+
 @if (Request.IsAuthenticated)
 {
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-        <!-- 🔽 Dynamic Topics Dropdown -->
         <li class="nav-item dropdown me-3">
             <a class="nav-link dropdown-toggle fw-semibold text-light" href="#" id="topicsDropdown" role="button"
                data-bs-toggle="dropdown" aria-expanded="false">
@@ -30,7 +30,7 @@
     </ul>
 
     <ul class="navbar-nav ms-auto">
-        <!-- 🔽 User Dropdown -->
+
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle fw-semibold text-light" href="#" id="userDropdown" role="button"
                data-bs-toggle="dropdown" aria-expanded="false">
@@ -72,6 +72,10 @@ else
         </li>
     </ul>
 }
+
+<li class="nav-item">
+    @Html.ActionLink("Bias Visualization", "Index", "Topic", null, new { @class = "nav-link fw-semibold text-light" })
+</li>
 
 <style>
     .nav-link:hover, .dropdown-item:hover {

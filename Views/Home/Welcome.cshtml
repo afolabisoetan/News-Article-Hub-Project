@@ -1,106 +1,87 @@
 ﻿@{
-    ViewBag.Title = "Welcome to the TrueGlobalNews Portal";
+    ViewBag.Title = "Welcome to TrueGlobalNews";
 }
 
-<style>
-    body {
-        background: linear-gradient(to right, #0f172a, #1e293b);
-        color: #f8fafc;
-        font-family: 'Segoe UI', sans-serif;
-        min-height: 100vh;
-    }
-</style>
-
-    <div class="container text-center my-5 fade-in">
-        <h1 class="display-5 fw-bold mb-3">Welcome to the TrueGlobalNews Portal 🌍</h1>
-        <p class="lead text-muted mb-5">
-            Explore the latest global stories by region and uncover different perspectives.
+<div class="container my-5 text-center">
+    <div class="mb-5">
+        <h1 class="fw-bold text-white">Welcome to TrueGlobalNews</h1>
+        <p class="lead text-light">
+            Stay informed with unbiased coverage, explore diverse perspectives, and visualize global narratives.
         </p>
+    </div>
 
-        <div class="row justify-content-center g-4">
-
-            <div class="col-md-4">
-                <div class="card topic-card shadow-lg border-0 h-100" onclick="location.href='/Topic/Ukraine'">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg"
-                         class="card-img-top" alt="Ukraine Flag">
-                    <div class="card-body">
-                        <h5 class="card-title">Ukraine</h5>
-                        <p class="card-text text-muted">
-                            Dive into ongoing developments in the Ukraine conflict and global response.
-                        </p>
-                    </div>
+    <div class="row justify-content-center g-4">
+        <!-- Card 1: World Map -->
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 rounded-4 h-100">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
+                     class="card-img-top rounded-top-4" style="height:200px; object-fit:cover;" alt="Map of the World">
+                <div class="card-body bg-dark text-light">
+                    <h5 class="card-title fw-semibold">Explore Global Topics</h5>
+                    <p class="card-text small">
+                        Dive into articles covering world events 
+                    </p>
                 </div>
             </div>
+        </div>
 
-
-            <div class="col-md-4">
-                <div class="card topic-card shadow-lg border-0 h-100" onclick="location.href='/Topic/Israel'">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg"
-                         class="card-img-top" alt="Palestine Flag">
-                    <div class="card-body">
-                        <h5 class="card-title">Palestine</h5>
-                        <p class="card-text text-muted">
-                            Read diverse perspectives on the humanitarian and political situation in Palestine.
-                        </p>
-                    </div>
+        <!-- Card 2: Earth from Space -->
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 rounded-4 h-100">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg"
+                     class="card-img-top rounded-top-4" style="height:200px; object-fit:cover;" alt="Earth from Space">
+                <div class="card-body bg-dark text-light">
+                    <h5 class="card-title fw-semibold">See the Bigger Picture</h5>
+                    <p class="card-text small">
+                        Gain a bigger picture by visualizing articles and their political biases.
+                    </p>
+                    <a href="/Topic/Index" class="btn btn-primary rounded-3 px-4">View Visualizations</a>
                 </div>
             </div>
+        </div>
 
-
-            <div class="col-md-4">
-                <div class="card topic-card shadow-lg border-0 h-100" onclick="location.href='/Topic/China'">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/330px-Flag_of_the_People%27s_Republic_of_China.svg.png" "
-                         class="card-img-top" alt="China Flag">
-                    <div class="card-body">
-                        <h5 class="card-title">China</h5>
-                        <p class="card-text text-muted">
-                            Explore China's role in U.S. trade wars and foreign policy actions.
-                        </p>
-                    </div>
+        <!-- Card 3: Magnifying Glass -->
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 rounded-4 h-100">
+                <img src="https://www.svgrepo.com/show/127033/magnifying-glass.svg"
+                     class="card-img-top rounded-top-4 p-4" style="height:200px; object-fit:contain;" alt="Magnifying Glass">
+                <div class="card-body bg-dark text-light">
+                    <h5 class="card-title fw-semibold">Investigate the Details</h5>
+                    <p class="card-text small">
+                        Be a scholar and weigh the veracity of a news article by its political bias
+                    </p>
+                    <a href="/Home/About" class="btn btn-primary rounded-3 px-4">Learn more about us</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <style>
-        .fade-in {
-            animation: fadeIn 1.2s ease-in;
+    <footer class="mt-5 text-muted small text-center">
+        <hr style="border-color:#555;" />
+        <p>&copy; @DateTime.Now.Year TrueGlobalNews — Built with ASP.NET MVC & Entity Framework</p>
+    </footer>
+</div>
+
+<style>
+    body {
+        background-color: #002b45; /* dark blue hue */
+    }
+
+    .card {
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.30);
         }
 
-        fadeIn {
-            from
+    .btn-primary {
+        background-color: #0078D7;
+        border: none;
+    }
 
-        {
-            opacity: 0;
-            transform: translateY(20px);
+        .btn-primary:hover {
+            background-color: #005fa3;
         }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        }
-
-        .topic-card {
-            cursor: pointer;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            border-radius: 15px;
-        }
-
-            .topic-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-            }
-
-            .topic-card img {
-                height: 180px;
-                object-fit: cover;
-                border-top-left-radius: 15px;
-                border-top-right-radius: 15px;
-            }
-
-        .card-body {
-            padding: 1.25rem;
-        }
-    </style>
+</style>

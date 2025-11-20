@@ -1,30 +1,126 @@
-﻿@using News_Article_Project.ViewModels
-@model TopicDetailsViewModel
+﻿@model News_Article_Project.ViewModels.TopicArticleVM
 @using Newtonsoft.Json
 
-<h2>@Model.TopicName – Bias Breakdown</h2>
+@{
+    ViewBag.Title = "Topics — Articles & Bias Charts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-<canvas id="biasChart"></canvas>
+<div class="container my-5">
+    <h1 class="text-center text-primary mb-4">@ViewBag.Title</h1>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    const biasData = @Html.Raw(JsonConvert.SerializeObject(Model.BiasCounts));
+    @foreach (var topic in Model.TopicArticles)
+    {
+        var topicName = topic.Key;
+        var articles = topic.Value;
+        var chartId = $"chart_{topicName.Replace(" ", "_")}";
 
-    const ctx = document.getElementById('biasChart');
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: Object.keys(biasData),
-            datasets: [{
-                label: 'Articles by Bias',
-                data: Object.values(biasData),
-                backgroundColor: ['#f87171', '#60a5fa', '#34d399']
-            }]
-        },
-        options: {
-            scales: {
-                y: { beginAtZero: true }
-            }
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">@topicName</h4>
+                <small>Articles: @articles.Count</small>
+            </div>
+            <div class="card-body">
+                <canvas id="@chartId" height="120"></canvas>
+
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const ctx = document.getElementById('@chartId');
+                if (!ctx) return;
+
+                const labels = @Html.Raw(JsonConvert.SerializeObject(articles.Select(a => a.Title)));
+                const dataValues = @Html.Raw(JsonConvert.SerializeObject(articles.Select(a => a.BiasValue)));
+
+                const backgroundColors = dataValues.map(v => {
+                    if (v <= 1) return 'rgba(31,58,147,0.8)';    // far left (dark blue)
+                    if (v == 2) return 'rgba(52,152,219,0.8)'  // moderate left (blue)
+                    if (v == 3) return 'rgba(46,204,113,0.8)';   // center (green)
+                    if (v == 4) return 'rgba(243, 156, 18, 0.8)';   // moderate right (orange)
+                    return 'rgba(231,76,60,0.8)';                 // far right (red)
+                });
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Bias (1 = Far Left → 5 = Far Right)',
+                            data: dataValues,
+                            backgroundColor: backgroundColors,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                min: 0,
+                                max: 5,
+                                ticks: { stepSize: 1 }
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(ctx) {
+                                        return ctx.label + ': ' + ctx.parsed.y;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+        </script>
+    }
+
+
+    <div class="container text-center mt-5 mb-4">
+        <h5 class="text-secondary mb-3">Bias Scale Legend</h5>
+        <div class="d-inline-flex flex-wrap justify-content-center">
+            <span class="legend-item">
+                <span class="legend-color" style="background-color: rgba(31,58,147,0.8);"></span> Far Left (1)
+            </span>
+            <span class="legend-item">
+                <span class="legend-color" style="background-color:  rgba(52,152,219,0.8);"></span> Moderate Left (2)
+            </span>
+            <span class="legend-item">
+                <span class="legend-color" style="background-color: rgba(46,204,113,0.8);"></span> Center (3)
+            </span>
+            <span class="legend-item">
+                <span class="legend-color" style="background-color: rgba(243,156,18,0.8);"></span> Moderate Right (4)
+            </span>
+            <span class="legend-item">
+                <span class="legend-color" style="background-color: rgba(231,76,60,0.8);"></span> Far Right (5)
+            </span>
+        </div>
+    </div>
+
+    <style>
+        .legend-item {
+            display: inline-flex;
+            align-items: center;
+            margin: 6px 12px;
+            font-size: 0.95rem;
+            color: #333;
         }
-    });
-</script>
+
+        .legend-color {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            margin-right: 6px;
+            border: 1px solid #bbb;
+            display: inline-block;
+        }
+    </style>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+}

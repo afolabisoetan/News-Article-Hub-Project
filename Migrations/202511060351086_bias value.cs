@@ -3,16 +3,16 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class adddescription : DbMigration
+    public partial class biasvalue : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.Articles", "Description", c => c.String());
+            AddColumn("dbo.Articles", "BiasValue", c => c.Int(nullable: true));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Articles", "Description");
+            DropColumn("dbo.Articles", "BiasValue");
         }
     }
 }

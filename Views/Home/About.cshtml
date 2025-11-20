@@ -1,9 +1,90 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "About TrueGlobalNews";
 }
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
 
-    <p>Use this area to provide additional information.</p>
-</main>
+<div class="container my-5 text-center text-light">
+    <!-- Hero Section -->
+    <div class="p-5 rounded-4 shadow-lg" style="background-color:#003459;">
+        <h1 class="fw-bold mb-3 text-white">About TrueGlobalNews</h1>
+        <p class="lead text-light">
+            A modern platform for exploring world events through balanced reporting, interactive data, and global perspective.
+        </p>
+    </div>
+
+    <!-- Mission Section -->
+    <div class="row my-5 align-items-center g-4">
+        <div class="col-md-6">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
+                 alt="Newsroom & Global Topics" class="img-fluid rounded-4 shadow">
+        </div>
+        <div class="col-md-6 text-start">
+            <h3 class="fw-semibold text-white mb-3">Our Mission</h3>
+            <p class="text-light">
+                This personal project was created to simulate a news organization that has the goal of combatting misinformation and political polarization in online journalism. The main purpose of this project is to give users the tools to recognize and interpret bias in reporting.
+            </p>
+            <p class="text-light">
+                In a real-life commercial context, the database that stores all of the topics, articles, and sources would be on a centralized cloud server instead of a local machine so that all users, wherever they are, can view all of the articles, sources, and topics.
+            </p>
+        </div>
+    </div>
+
+    <!-- Technology Section -->
+    <div class="row my-5 align-items-center g-4 flex-md-row-reverse">
+        <div class="col-md-6">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/World_Data_Visualization.png"
+                 alt="Data Visualization & Tech Stack" class="img-fluid rounded-4 shadow">
+        </div>
+        <div class="col-md-6 text-start">
+            <h3 class="fw-semibold text-white mb-3">Built with Modern Technology</h3>
+            <p class="text-light">
+                TrueGlobalNews is developed using <strong>ASP.NET MVC</strong> and <strong>Entity Framework</strong> for robust backend management, with a <strong>SQL Server</strong> database ensuring data integrity and scalability.
+            </p>
+            <p class="text-light">
+                The user experience is enhanced using <strong>Bootstrap 5</strong> for sleek design and <strong>Chart.js</strong> for real-time bias visualization.
+            </p>
+        </div>
+    </div>
+
+    <!-- Vision Section -->
+    <div class="p-4 mt-5 bg-dark rounded-4 shadow-lg">
+        <h3 class="fw-bold text-primary mb-3">Our Vision</h3>
+        <p class="text-light">
+            To inspire critical thinking, bridge global divides, and redefine how audiences engage with world news.
+            Whether you’re exploring the latest geopolitical developments or understanding social change,
+            TrueGlobalNews strives to provide a neutral and visually engaging gateway to global information.
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-5 small text-secondary">
+        <hr style="border-color:#444;">
+        <p>&copy; @DateTime.Now.Year TrueGlobalNews — Where Transparency Meets Technology</p>
+    </footer>
+</div>
+
+<style>
+    body {
+        background-color: #001f33; /* Deep dark-blue */
+    }
+
+    .shadow-lg {
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    h1, h3 {
+        letter-spacing: 0.5px;
+    }
+
+    .img-fluid {
+        border: 3px solid #005fa3;
+    }
+
+    .btn-primary {
+        background-color: #0078D7;
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #005fa3;
+        }
+</style>

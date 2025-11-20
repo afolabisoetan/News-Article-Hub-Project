@@ -7,13 +7,13 @@ namespace News_Article_Project.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class uniqueness : IMigrationMetadata
+    public sealed partial class biasvalue : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(uniqueness));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(biasvalue));
         
         string IMigrationMetadata.Id
         {
-            get { return "202510300506231_uniqueness"; }
+            get { return "202511060351086_bias value"; }
         }
         
         string IMigrationMetadata.Source

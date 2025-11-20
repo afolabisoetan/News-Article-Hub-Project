@@ -7,13 +7,13 @@ namespace News_Article_Project.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class adddescription : IMigrationMetadata
+    public sealed partial class pginit : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(adddescription));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(pginit));
         
         string IMigrationMetadata.Id
         {
-            get { return "202510300512280_add description"; }
+            get { return "202511040342580_pg init"; }
         }
         
         string IMigrationMetadata.Source

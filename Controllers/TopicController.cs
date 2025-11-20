@@ -11,36 +11,36 @@ namespace News_Article_Project.Controllers
     public class TopicController : Controller
     {
         // GET: Topic
-        public ActionResult Index ()
+        public ActionResult Index()
         {
-            /** ApplicationDbContext dbContext = new ApplicationDbContext();
-             // 1️⃣ Find the topic by ID
-             var topic = dbContext.Topics.FirstOrDefault(t => t.TopicId == id);
-             if (topic == null)
-             {
-                // return NotFound();
-             }
-
-             // 2️⃣ Count how many articles fall under each bias category for that topic
-             var biasCounts = dbContext.Articles
-                 .Where(a => a.TopicId == id)
-                 .GroupBy(a => a.Source.Bias)
-                 .ToDictionary(g => g.Key, g => g.Count());
-
-             // 3️⃣ Package it into a ViewModel
-             var vm = new TopicDetailsViewModel
-             {
-                 TopicName = topic.Name,
-                 BiasCounts = biasCounts
-             };
-            **/
-            var vm1 = new TopicDetailsViewModel
+            using (var dbContext = new ApplicationDbContext())
             {
-                TopicName = "Seria",
-                BiasCounts = new Dictionary<string, int> { { "Left: ", 7 }, { "Right: ", 8 } }
-            };
-            // 4️⃣ Send data to the Razor view
-            return View(vm1);
+                // Load Topics and their related Articles + Sources
+                var topics = dbContext.Topics
+                    .Include(t => t.Articles.Select(a => a.Source))
+                    .ToList();
+
+                // Create dictionary: TopicName -> List of ArticleBiasVMs
+                var topicArticles = topics.ToDictionary(
+                    t => t.Name,
+                    t => t.Articles
+                            .Select(a => new ArticleBiasVM
+                            {
+                                ArticleId = a.ArticleId,
+                                Title = a.Title,
+                                BiasValue = a.BiasValue,
+                                SourceName = a.Source != null ? a.Source.Name : "Unknown"
+                            })
+                            .ToList()
+                );
+
+                var vm = new TopicArticleVM
+                {
+                    TopicArticles = topicArticles
+                };
+
+                return View(vm);
+            }
         }
 
         public ActionResult Details(string topicName)

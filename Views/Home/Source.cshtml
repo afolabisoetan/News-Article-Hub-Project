@@ -30,7 +30,15 @@
 
                         <div class="mb-3">
                             <label class="form-label fw-semibold">Source Bias</label>
-                            @Html.TextBoxFor(x => x.Bias, new { @class = "form-control rounded-3 shadow-sm", placeholder = "e.g. Left, Right, Center" })
+                            @Html.DropDownListFor(x => x.Bias,
+                                new SelectList(new[]
+                                {
+                                    new { Value = "Left", Text = "Left" },
+                                    new { Value = "Center", Text = "Center" },
+                                    new { Value = "Right", Text = "Right" }
+                                }, "Value", "Text"),
+                                "Select Bias",
+                                new { @class = "form-select rounded-3 shadow-sm" })
                         </div>
 
                         <div class="mb-4">

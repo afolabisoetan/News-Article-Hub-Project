@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    <!-- SOURCES TABLE -->
+    
     <div class="card shadow-lg mb-5 border-0 rounded-4">
         <div class="card-header text-white fw-bold" style="background-color: #0078D7;">
             <h4 class="mb-0"><i class="bi bi-newspaper me-2"></i>Sources</h4>
@@ -79,7 +79,7 @@
         </div>
     </div>
 
-    <!-- ARTICLES TABLE -->
+    
     <div class="card shadow-lg mb-5 border-0 rounded-4">
         <div class="card-header text-white fw-bold" style="background-color: #0078D7;">
             <h4 class="mb-0"><i class="bi bi-file-earmark-text me-2"></i>Articles</h4>
@@ -95,6 +95,7 @@
                             <th>Topic</th>
                             <th>Source</th>
                             <th>URL</th>
+                            <th>Bias</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -106,6 +107,7 @@
                                 <td>@article.Topic.TopicId</td>
                                 <td>@article.Source.SourceId</td>
                                 <td><a href="@article.Url" target="_blank">@article.Url</a></td>
+                                <td>Bias: @article.BiasValue </td>
                             </tr>
                         }
                     </tbody>

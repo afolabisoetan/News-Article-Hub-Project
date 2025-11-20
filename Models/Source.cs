@@ -13,7 +13,11 @@ namespace News_Article_Project.Models
 
         [MaxLength(200)]
         public string Name { get; set; } = string.Empty;
+
+        [Required]
         public string Bias { get; set; } = "Center"; // Left, Right, Center, etc.
+
+        [Required]
         public string Website { get; set; } = string.Empty;
 
         public List<Article> Articles { get; set; } = new List<Article>();

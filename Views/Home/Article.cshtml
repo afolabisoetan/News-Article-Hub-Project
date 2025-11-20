@@ -36,6 +36,11 @@
                         </div>
 
                         <div class="mb-3">
+                            <label class="form-label fw-semibold">Numerical Representation of Bias (1 = far left, 2 = left, 3 = center, 4 = right, 5 = far right)</label>
+                            @Html.TextBoxFor(x => x.BiasValue, new { @class = "form-control rounded-3 shadow-sm", rows = 4, placeholder = "Briefly describe this article..." })
+                        </div>
+
+                        <div class="mb-3">
                             <label class="form-label fw-semibold">Topic</label>
                             @Html.DropDownListFor(
                                 x => x.TopicName,
